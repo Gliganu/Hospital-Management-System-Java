@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<security:authentication-manager>
+
+		<security:authentication-provider>
+			<security:jdbc-user-service
+				data-source-ref="dataSource"
+				authorities-by-username-query='SELECT username,authority FROM hospital_management.user where binary username= ?'
+				users-by-username-query='SELECT username,password,true FROM hospital_management.user where binary username=?'
+				id="jdbcUserService" />
+		</security:authentication-provider>
+
+	</security:authentication-manager>
+
+	<security:http use-expressions="true">
+		<security:intercept-url pattern="/home" access="permitAll" />
+		<security:intercept-url pattern="/showAllPatients"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/showAllDoctors"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/showAllDrugs"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/showAllInterns"
+			access="permitAll" />
+		<security:intercept-url pattern="/showAllJanitors"
+			access="permitAll" />
+		<security:intercept-url pattern="/showAllSections"
+			access="permitAll" />
+		<security:intercept-url pattern="/showAllRooms"
+			access="permitAll" />
+		<security:intercept-url pattern="/showAllDiseases"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/getRoomsDetails"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/login"
+			access="permitAll" />
+		<security:intercept-url pattern="/logOut"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/createAccount"
+			access="permitAll" />
+		<security:intercept-url pattern="/doCreateAccount"
+			access="permitAll" />
+		<security:intercept-url pattern="/infoPage"
+			access="permitAll" />
+		<security:intercept-url pattern="/editProfile"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/changePassword"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/doChangePassword"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/deleteAccount"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/admin"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/addDrug"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/addPatient"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/addDoctor"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/addIntern"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/addJanitor"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/addSection"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/addRoom"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/addDisease"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/doAddDrug"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/doAddPatient"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/editPatient"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/deletePatient"
+			access="hasRole('ROLE_ADMIN')" />
+		
+		<security:intercept-url pattern="/" access="permitAll" />
+		<security:intercept-url pattern="/static/**"
+			access="permitAll" />
+		<security:intercept-url pattern="/**" access="denyAll" />
+		<security:form-login login-page="/login"
+			authentication-failure-url="/login?error=true" />
+		<security:logout logout-success-url="/logOut" />
+		<security:access-denied-handler
+			error-page="/accessDenied" />
+		<security:remember-me key="offersAppKey"
+			user-service-ref="jdbcUserService" />
+	</security:http>
+
+
+	<security:global-method-security
+		pre-post-annotations="enabled" secured-annotations="enabled">
+	</security:global-method-security>
+
+
+	<bean id="passwordEncoder"
+		class="org.springframework.security.crypto.password.StandardPasswordEncoder">
+	</bean>
+</beans>

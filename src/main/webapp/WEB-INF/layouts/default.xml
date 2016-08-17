@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
+<tiles-definitions>
+
+	<definition name="hospital.base" template="/WEB-INF/templates/default.jsp">
+		<put-attribute name="includes" value=""></put-attribute>
+		<put-attribute name="title" value=""></put-attribute>
+		<put-attribute name="toolbar" value=""></put-attribute>
+		<put-attribute name="header" value="/WEB-INF/tiles/header.jsp"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/content.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/tiles/footer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="home" extends="hospital.base">
+		<put-attribute name="title" value="Hospital Home Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/home.jsp"></put-attribute>
+	</definition>
+
+	<definition name="patients" extends="hospital.base">
+		<put-attribute name="title" value="Patients Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/patients.jsp"></put-attribute>
+	</definition>
+
+	<definition name="doctors" extends="hospital.base">
+		<put-attribute name="title" value="Doctors Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/doctors.jsp"></put-attribute>
+	</definition>
+
+	<definition name="drugs" extends="hospital.base">
+		<put-attribute name="title" value="Drugs Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/drugs.jsp"></put-attribute>
+	</definition>
+
+	<definition name="interns" extends="hospital.base">
+		<put-attribute name="title" value="Interns Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/interns.jsp"></put-attribute>
+	</definition>
+
+	<definition name="janitors" extends="hospital.base">
+		<put-attribute name="title" value="Janitors Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/janitors.jsp"></put-attribute>
+	</definition>
+
+	<definition name="sections" extends="hospital.base">
+		<put-attribute name="title" value="Sections Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/sections.jsp"></put-attribute>
+	</definition>
+
+	<definition name="rooms" extends="hospital.base">
+		<put-attribute name="title" value="Rooms Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/rooms.jsp"></put-attribute>
+	</definition>
+
+	<definition name="diseases" extends="hospital.base">
+		<put-attribute name="title" value="Diseases Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/diseases.jsp"></put-attribute>
+	</definition>
+
+	<definition name="patientDetails" extends="hospital.base">
+		<put-attribute name="title" value="Patient Details Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/patientDetails.jsp"></put-attribute>
+	</definition>
+
+	<definition name="roomsDetails" extends="hospital.base">
+		<put-attribute name="title" value="Patient Details Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/roomsDetails.jsp"></put-attribute>
+	</definition>
+
+	<definition name="loginForm" extends="hospital.base">
+		<put-attribute name="title" value="Login Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/loginForm.jsp"></put-attribute>
+	</definition>
+
+	<definition name="logOut" extends="hospital.base">
+		<put-attribute name="title" value="Log Out Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/logOut.jsp"></put-attribute>
+	</definition>
+
+	<definition name="createAccountForm" extends="hospital.base">
+		<put-attribute name="includes"
+			value="/WEB-INF/tiles/createAccountScript.jsp"></put-attribute>
+		<put-attribute name="title" value="Create Account Page"></put-attribute>
+		<put-attribute name="content"
+			value="/WEB-INF/tiles/createAccountForm.jsp"></put-attribute>
+	</definition>
+
+	<definition name="infoPage" extends="hospital.base">
+		<put-attribute name="title" value="Info Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/infoPage.jsp"></put-attribute>
+	</definition>
+
+	<definition name="editProfile" extends="hospital.base">
+		<put-attribute name="title" value="Edit Profile Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/editProfile.jsp"></put-attribute>
+	</definition>
+
+	<definition name="changePassword" extends="hospital.base">
+		<put-attribute name="includes"
+			value="/WEB-INF/tiles/createAccountScript.jsp"></put-attribute>
+		<put-attribute name="title" value="All Categories"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/changePassword.jsp"></put-attribute>
+	</definition>
+
+	<definition name="confirmDelete" extends="hospital.base">
+		<put-attribute name="title" value="Confirm Delete Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/confirmDelete.jsp"></put-attribute>
+	</definition>
+
+	<definition name="admin" extends="hospital.base">
+		<put-attribute name="title" value="Admin Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/admin.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="addPatient" extends="hospital.base">
+		<put-attribute name="title" value="Add Patient Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/editPages/addPatient.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="addDoctor" extends="hospital.base">
+		<put-attribute name="title" value="Add Doctor Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/editPages/addDoctor.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="addDrug" extends="hospital.base">
+		<put-attribute name="title" value="Add Drug Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/editPages/addDrug.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="addPatient" extends="hospital.base">
+		<put-attribute name="title" value="Admin Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/editPages/addPatient.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="addIntern" extends="hospital.base">
+		<put-attribute name="title" value="Add Intern Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/editPages/addIntern.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="addJanitor" extends="hospital.base">
+		<put-attribute name="title" value="Add Janitor Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/editPages/addJanitor.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="addSection" extends="hospital.base">
+		<put-attribute name="title" value="Add Section Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/editPages/addSection.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="addRoom" extends="hospital.base">
+		<put-attribute name="title" value="Add Room Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/editPages/addRoom.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="addDisease" extends="hospital.base">
+		<put-attribute name="title" value="Add Disease Page"></put-attribute>
+		<put-attribute name="content" value="/WEB-INF/tiles/editPages/addDisease.jsp"></put-attribute>
+	</definition>
+	
+
+</tiles-definitions>
